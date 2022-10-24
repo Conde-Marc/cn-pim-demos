@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Collection UI</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500,500i,600,600i,700,700i&display=swap">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background: #f3f3f3;
+        font-family: "IBM Plex Sans","Noto Sans",Helvetica,Arial,sans-serif;
+        font-size:15px;
+        margin:0;
+        padding:0;
+        color:rgb(23 23 23);
+    }
+    h1, h2{
+        font-size:32px;
+        margin-top:0;
+    }
+    h3{
+        font-size:24px;
+    }
+    h4{
+        font-size:18px;
+    }
+    a {
+        color:#111;
+    }
+    img {
+        width:100%;
+    }
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin:0;
+        padding:0;
+    }
+    nav ul li {
+        padding:16px;
+        text-align: left;
+        color:#fff;
+        background: #F3F3F3;
+        border-right:1px solid #e0e0e0;
+    }
+    nav ul li.active {
+        font-weight:700;
+    }
+    .toggle {
+        display:none;
+    }
+    .toggle.active{
+        display:block;
+    }
+    #main {
+        max-width:1216px;
+        padding:45px;
+        background: #fff;
+        margin:45px auto;
+        box-shadow: 0 2px 2px 0 rgb(23 23 23 / 7%), 0 3px 1px -2px rgb(23 23 23 / 10%), 0 1px 5px 0 rgb(23 23 23 / 6%);
+    }
+    .form-row .label {
+        font-size:15px;
+        display:block;
+        font-weight: 700;
+        padding-bottom:8px;
+    }
+    input, select,
+    .select2-container--default .select2-selection--single,
+    .select2-container--default .select2-selection--multiple {
+        width:100%;
+        font-size:1rem;
+        color:inherit;
+        height:auto;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        padding: 10px 16px;
+    }
+    input[type=checkbox] {
+        width:auto;
+    }
+    .form-row {
+        margin-bottom:15px;
+    }
+    .button {
+        margin-top:60px;
+    }
+    button {
+        background:rgb(23,23,23);
+        font-family:inherit;
+        font-weight:700;
+        font-size:16px;
+        color:#fff;
+        padding:7px 10px;
+        border-radius: 4px;
+        border:0;
+        text-align: center;
+        cursor: pointer;
+    }
+    button.large {
+        font-size:1.2rem;
+        background:#3D5AFE;
+        padding:14px 20px;
+    }
+    .paragraph-lg {
+        margin-bottom:60px;
+    }
+    .paragraph-md {
+        margin-bottom:45px;
+    }
+    .paragraph-sm {
+        margin-bottom:30px;
+    }
+    .sepa{
+        font-size:1.6rem;
+        text-align: center;
+        font-weight:700;
+    }
+    .group {
+        background:#fff;
+        padding:30px;
+    }
+    .product {
+        width:25%;
+        font-size:.7rem;
+        position: relative;
+        margin-bottom:10px;
+    }
+    .product .cover.pin, .product.pin  {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.166 16.943l1.4 1.4-4.622 4.657h-2.944l6.166-6.057zm11.768-6.012c2.322-2.322 4.482-.457 6.066-1.931l-8-8c-1.474 1.584.142 3.494-2.18 5.817-3.016 3.016-4.861-.625-10.228 4.742l9.6 9.6c5.367-5.367 1.725-7.211 4.742-10.228z"/></svg>');
+        background-repeat: no-repeat;
+        background-position:top right;
+    }
+    .edit {
+        width:24px;
+        height:24px;
+        background-size:cover;
+        position: absolute;
+        bottom:10px;
+        right:10px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-5 17l1.006-4.036 3.106 3.105-4.112.931zm5.16-1.879l-3.202-3.202 5.841-5.919 3.201 3.2-5.84 5.921z"/></svg>');
+    }
+    .cover {
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+
+<div id="main">
+    <section class="overlay">
+        <div class="wrapper">
+            <h2 class="paragraph-md">Product Collection</h2>
+            <nav class="paragraph-md">
+                <ul>
+                    <li class="active"><a href="#" class="trigger" data-target="#general">General</a></li>
+                    <li><a href="#" class="trigger" data-target="#products">Products</a></li>
+                    <li><a href="#" class="trigger" data-target="#taxonomy">Taxonomy</a></li>
+                </ul>
+            </nav>
+            <div class="containers">
+                <div class="container toggle active" id="general">
+                    <div class="container-wrapper">
+                        <h3>General</h3>
+                        <div class="form-row">
+                            <label>
+                                <div class="label">Name of Product Collection</div>
+                                <input type="text" value="Gucci Handbag Special">
+                            </label>
+                        </div>
+                        <div class="form-row">
+                            <label>
+                                <input type="checkbox" value="1" checked> Replace outdated products
+                            </label>
+                        </div>
+                        <div class="form-row paragraph-lg">
+                            <label>
+                                <input class="manual-toggle" type="checkbox" value="1" checked> Manual product selection only
+                            </label>
+                        </div>
+                        <div class="toggle" id="condition-container">
+                            <h4>Conditions</h4>
+                            <div id="conditions"></div>
+                            <button class="paragraph-md" id="more" class="small">Add more</button>
+                            <div class="form-row paragraph-md">
+                                <label>
+                                    <div class="label">Sorting by</div>
+                                    <select style="width:auto">
+                                        <option selected>Default</option>
+                                        <option>Price</option>
+                                        <option>Arrival</option>
+                                    </select>
+                                    <select style="width:auto">
+                                        <option>Ascending</option>
+                                        <option>Descending</option>
+                                    </select>
+                                    and 
+                                    <select style="width:auto">
+                                        <option selected></option>
+                                        <option>Price</option>
+                                        <option>Arrival</option>
+                                    </select>
+                                    <select style="width:auto">
+                                        <option></option>
+                                        <option>Ascending</option>
+                                        <option>Descending</option>
+                                    </select>
+                                    and 
+                                    <select style="width:auto">
+                                        <option selected></option>
+                                        <option>Price</option>
+                                        <option>Arrival</option>
+                                    </select>
+                                    <select style="width:auto">
+                                        <option></option>
+                                        <option>Ascending</option>
+                                        <option>Descending</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container toggle" id="products">
+                    <div class="container-wrapper">
+                        <h3>Products</h3>
+                        <div class="paragraph-md">
+                            <button class="trigger-finder">Add product (Asset-Finder)</button>
+                            <button id="add-content">Add Content</button>
+                        </div>
+                        <div class="toggle asset-finder">
+                            <div class="paragraph-md">
+                                <div class="form-row">
+                                    <label>
+                                        <div class="label">Find Product</div>
+                                        <select id="asset-finder-product" style="width:100%"></select>
+                                    </label>
+                                </div>
+                                <button id="add-product" class="small">Add Product</button>
+                                <button onclick="alert('Product Creation UI')" class="small">Create Product</button>
+                            </div>
+                        </div>
+                        <div class="products" style="display:flex;flex-flow: row wrap;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container toggle" id="taxonomy">
+                <div class="container-wrapper">
+                    <h3>Taxonomy</h3>
+                    <div class="form-row paragraph-md">
+                        <label>
+                            <div class="label">Parent Product Collection</div>
+                            <select class="parent" style="width:100%">
+                                <option selected>&nbsp;</option>
+                                <option>Commerce</option>
+                                <option>Commerce - Fashion</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <button class="large">Save</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="toggle group" id="template-condition">
+    <div class="form-row">
+        <label>
+            <div class="label">Category</div>
+            <select class="category" style="width:100%">
+                <option>All</option>
+                <option>Health & Beauty>Personal Care>Cosmetics>Bath & Body>Adult Hygienic Wipes</option>
+                <option>Health & Beauty>Personal Care>Cosmetics>Bath & Body>Bar Soap</option>
+                <option>Health & Beauty>Personal Care>Cosmetics>Bath & Body>Bath Additives</option>
+            </select>
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <div class="label">Brand</div>
+            <select class="brand" style="width:100%">
+                <option>All</option>
+                <option>Armani</option>
+                <option>Burberry</option>
+                <option>Gucci</option>
+                <option>MiuMiu</option>
+            </select>
+        </label>
+    </div>
+    <div class="form-row">
+        <label>
+            <div class="label">Tags</div>
+            <select class="tags" style="width:100%" multiple="multiple">
+                <option>Marc's Edit</option>
+            </select>
+        </label>
+    </div>
+    <div class="form-row" style="display:flex">
+        <label>
+            <div class="label">Price from</div>
+            <input type="number" style="width:auto" placeholder="Price from">
+        </label>
+        <label style="margin-left:20px">
+            <div class="label">Price to</div>
+            <input type="number" style="width:auto" placeholder="Price to">
+        </label>
+    </div>
+</div>
+
+<div class="toggle product" id="template-product" draggable="true">
+    <div class="image"></div>
+    <div class="brand"></div>
+    <div class="name"></div>
+    <div class="price"></div>
+    <div class="retailer"></div>
+    <div class="cover"></div>
+    <div class="edit" onclick="alert('Product Edit UI')"></div>
+</div>
+
+<div class="toggle product" style="padding:10px" id="template-content" draggable="true">
+    <h3>Content</h3>
+    <input type="text" placeholder="CID">
+    <div class="edit" onclick="alert('Copilot')"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script>
+
+let products = [
+    {
+        image: 'https://assets.vogue.com/photos/633567a612d49c1b07d34c5b/3:4/w_640,c_limit/VICTORIA%20BECKHAM_Embroidered%20striped%20sweater.jpg',
+        brand: 'VICTORIA BECKHAM',
+        name: 'Embroidered striped sweater',
+        price: '$590',
+        retailer: 'AT NET-A-PORTER'
+    },
+    {
+        image: 'https://assets.vogue.com/photos/633568363f16d8941799dc8e/3:4/w_748%2Cc_limit/SALOMON_XT-wings%2520sneakers.jpg',
+        brand: 'Salomon',
+        name: 'XT-wings sneakers',
+        price: '$160',
+        retailer: 'AT SSENSE'
+    }
+]
+
+
+let poolProducts = [
+    {
+        image: 'https://assets.vogue.com/photos/6335686af72b36474fd0c51c/3:4/w_748%2Cc_limit/PUMA%2520X%2520VOGUE_hoodie.jpg',
+        brand: 'PUMA X VOGUE',
+        name: 'hoodie',
+        price: '$80',
+        retailer: 'AT PUMA'
+    },
+    {
+        image: 'https://assets.vogue.com/photos/633568ce4fead7d5452dbdb2/3:4/w_748%2Cc_limit/JIL%2520SANDER_leather%2520sneakers.jpg',
+        brand: 'JIL Sander',
+        name: 'leather sneakers',
+        price: '$690',
+        retailer: 'AT MATCHESFASHION'
+    }
+]
+
+function template(id, callback) {
+    let el = $(id).clone().attr('id', null).removeClass('toggle')
+    if (callback !== undefined)
+        callback(el)
+    return el
+}
+function appendCriteria() {
+    $('#conditions').append(template('#template-condition', function(el) {
+        el.find('.category').select2()
+        el.find('.brand').select2()
+        el.find('.tags').select2({
+            tags: true
+        })
+    }))
+}
+function appendProduct(product) {
+    $('#products .products').prepend(template('#template-product', function(el) {
+        el.find('.brand').html(product.brand)
+        el.find('.price').html(product.price)
+        el.find('.retailer').html(product.retailer)
+        el.find('.name').html(product.name)
+        el.find('.image').append($('<img/>').attr('src', product.image))
+    }))
+}
+function appendContent() {
+    $('#products .products').prepend(template('#template-content'))
+}
+
+$(function() {
+    $('body').on('click', '.trigger', function(e) {
+        e.preventDefault()
+        $('.container').removeClass('active')
+        $('nav li').removeClass('active')
+        $($(this).data('target')).addClass('active')
+        $(this).closest('li').addClass('active')
+    })
+    appendCriteria()
+    $('#more').click(function(e) {
+        e.preventDefault()
+        $('#conditions').append($('<div/>').addClass('sepa').html('+'))
+        appendCriteria()
+    })
+    products.forEach(function(product) {
+        appendProduct(product)
+    })
+    new Sortable($('#products .products')[0], {
+        onUpdate: function(e) {
+            $(e.item).find('.cover').addClass('pin')
+        }
+    })
+
+    $('.trigger-finder').click(function(e) {
+        e.preventDefault()
+        $('.asset-finder').toggleClass('toggle')
+    })
+    poolProducts.forEach(function(product, index) {
+        $('#asset-finder-product').append($('<option>', {
+            text: product.brand + ' - ' + product.name,
+            value: index
+        }))
+    })
+    $('#asset-finder-product').select2()
+    $('#add-product').click(function(e) {
+        e.preventDefault()
+        appendProduct(poolProducts[$('#asset-finder-product option:selected').val()])
+        $('.product').first().find('.cover').addClass('pin')
+    })
+    $('#add-content').click(function(e) {
+        e.preventDefault()
+        appendContent()
+        $('.product').first().addClass('pin')
+    })
+    $('.parent').select2()
+    $('.manual-toggle').change(function() {
+        $('#condition-container').toggleClass('toggle')
+    })
+})
+</script>
+
+</body>
+</html>
