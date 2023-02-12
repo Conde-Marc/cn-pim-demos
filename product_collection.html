@@ -29,55 +29,10 @@
     }
     a {
         color:#111;
+        text-decoration: none;
     }
     img {
         width:100%;
-    }
-    nav ul {
-        display: flex;
-        list-style: none;
-        margin:0;
-        padding:0;
-    }
-    nav ul li {
-        padding:10px 14px;
-        font-size:.8rem;
-        text-align: left;
-        color:#fff;
-        background: #F3F3F3;
-        border-right:1px solid #e0e0e0;
-    }
-    nav ul li.active {
-        font-weight:700;
-    }
-    .toggle {
-        display:none;
-    }
-    .toggle.active{
-        display:block;
-    }
-    .grid{
-        display: flex;
-        flex-flow: row wrap;
-    }
-    .container {
-        display:none;
-        max-width:1216px;
-        padding:45px;
-        background: #fff;
-        border-radius: 4px;
-        margin:45px auto;
-        margin-top:80px;
-        box-shadow: 0 2px 2px 0 rgb(23 23 23 / 7%), 0 3px 1px -2px rgb(23 23 23 / 10%), 0 1px 5px 0 rgb(23 23 23 / 6%);
-    }
-    .container.active{
-        display:block;
-    }
-    .form-row .label {
-        font-size:1em;
-        display:block;
-        font-weight: 700;
-        padding-bottom:8px;
     }
     input, select,
     .select2-container--default .select2-selection--single,
@@ -89,62 +44,104 @@
         border: 1px solid #dcdcdc;
         border-radius: 4px;
         padding: 10px 16px;
+        background:#fff;
     }
     input[type=checkbox] {
         width:auto;
     }
-    .form-row {
-        margin-bottom:25px;
+    nav {
+        background:#121212;
+        color:#fff;
     }
-    .button {
-        margin-top:60px;
+    nav ul, ol {
+        display: flex;
+        list-style: none;
+        margin:0;
+        padding:0;
+    }
+    nav ul li {
+        padding:10px 14px;
+        display: flex;
+        font-size:.8rem;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #000;
+        border-right:1px solid #333;
+    }
+    ol li {
+        width:33.3333%;
+        border-bottom: 1px solid #DCDCDC;
+        padding:15px 0;
     }
     button {
-        background:rgb(23,23,23);
+        background: #efefef;
+        color:#000;
+        font-size: .9rem;
         font-family:inherit;
         font-weight:700;
-        font-size:16px;
-        color:#fff;
         padding:7px 10px;
         border-radius: 4px;
         border:0;
         text-align: center;
         cursor: pointer;
     }
-    button.secondary{
-        background: #efefef;
-        color:#000;
-        font-size: .9rem;
-    }
-    button.large {
+    button.primary {
         font-size:1.2rem;
         background:#3D5AFE;
+        color:#fff;
         padding:14px 20px;
     }
-    .paragraph-lg {
-        margin-bottom:60px;
+    button.small {
+        font-weight: 400;
+        font-size: .80rem;
     }
-    .paragraph-md {
-        margin-bottom:45px;
+    .white{
+        color:#fff;
     }
-    .paragraph-sm {
-        margin-bottom:30px;
+    .bold{
+        font-weight: 700;
     }
-    .sepa{
-        font-size:1.6rem;
+    .highlight{
+        text-decoration: underline;
+    }
+    .right{
+        text-align: right;
+    }
+    .center{
         text-align: center;
-        font-weight:700;
     }
-    .group {
-        background:#efefef;
-        padding:30px;
-        font-size:.9rem;
+    #menu {
+        margin-left:auto;
+        margin-right:20px;
+    }
+    .container {
+        display:none;
+        max-width:1216px;
+        padding:45px;
+        background: #fff;
+        border-radius: 4px;
+        margin:45px auto;
+        box-shadow: 0 2px 2px 0 rgb(23 23 23 / 7%), 0 3px 1px -2px rgb(23 23 23 / 10%), 0 1px 5px 0 rgb(23 23 23 / 6%);
+    }
+    .paragraph {
+        margin-bottom:20px;
+    }
+    .paragraph .label {
+        font-size:1em;
+        display:block;
+        font-weight: 700;
+        padding-bottom:8px;
+    }
+    .grid {
+        display:flex;
+        flex-flow: row wrap;
     }
     .product {
         width:25%;
         font-size:.7rem;
         position: relative;
         margin-bottom:10px;
+        background: #F4F4F4;
     }
     .product .cover.pin, .product.pin  {
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.166 16.943l1.4 1.4-4.622 4.657h-2.944l6.166-6.057zm11.768-6.012c2.322-2.322 4.482-.457 6.066-1.931l-8-8c-1.474 1.584.142 3.494-2.18 5.817-3.016 3.016-4.861-.625-10.228 4.742l9.6 9.6c5.367-5.367 1.725-7.211 4.742-10.228z"/></svg>');
@@ -167,65 +164,24 @@
         width:100%;
         height: 100%;
     }
-    #main-nav, #main-nav ul li {
-        background:#121212;
-        color:#fff;
-        border-bottom: 1px solid #000;
-        border-right:1px solid #333;
-    }
-    #main-nav, #main-nav ul li a {
-        text-decoration: none;
-        color:#fff;
-    }
-    #main-nav {
-        position: fixed;
-        top:0;
-        left:0;
+    .backdrop {
+        background:rgba(30,30,30,.5);
         width:100%;
+        height:100%;
+        position: fixed;
+        left:0;
+        top:0;
     }
-    #menu {
-        margin-left:auto;
-        margin-right:20px;
-    }
-    #menu input{
-        display: block;
-        width: 40px;
-        height: 32px;
-        position: absolute;
-        top: -7px;
-        left: -5px;
+    .overlay .close {
+        position:absolute;
+        right:15px;
+        top:15px;
         cursor: pointer;
-        opacity: 0; 
-        z-index: 2; 
-        -webkit-touch-callout: none;
-    }
-
-    #menu span {
-        display: block;
-        width: 33px;
-        height: 4px;
-        margin-bottom: 5px;
-        position: relative;
-        background: #fff;
-        border-radius: 3px;
-        z-index: 1;
-        transform-origin: 4px 0px;
-        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                    opacity 0.55s ease;
-    }
-
-    #menu span:first-child
-    {
-        transform-origin: 0% 0%;
-    }
-
-    #menu span:nth-last-child(2)
-    {
-        transform-origin: 0% 100%;
+        font-size:30px;
     }
     .overlay {
-        position: absolute;
+        position: fixed;
+        background:#fff;
         top:50%;
         left:50%;
         width:600px;
@@ -237,11 +193,53 @@
         width:100%;
         height:100%;
         overflow-y:scroll;
+        position: relative;
+        padding:45px;
     }
-    .collection-list{
-        font-size:16px;
-        padding:10px 0;
-        border-bottom: 1px solid #DCDCDC;
+    #condition-container{
+        background:#F8F8F8;
+        border:1px solid #f0f0f0;
+        padding:30px;
+    }
+    .query-group {
+        padding:15px;
+        padding-bottom:0;
+        background:#fff;
+    }
+    .query-group:last-child {
+        padding-bottom:15px;
+    }
+    .or, .and {
+        margin-top: 20px;
+        font-size: 15px;
+        font-weight: 700;
+        text-align: center;
+        width: 100%;
+    }
+    .query-group:last-child .or {
+        display:none;
+    }
+    .query-row:last-child .and {
+        display:none;
+    }
+    .query-row {
+        margin-bottom:15px;
+    }
+    .select {
+        width:25%;
+    }
+    .remove {
+        width:10%;
+        text-align: right;
+    }
+    .value {
+        width:65%;
+    }
+    .toggle {
+        display:none;
+    }
+    .active{
+        display:block;
     }
     </style>
 </head>
@@ -251,9 +249,13 @@
     <nav id="main-nav" style="display:flex;align-items: center;z-index:999">
         <ul>
             <li><a href="https://copilot.condenast.io/" target="_blank"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xx-large nav-header--icon copilot"><g clip-path="url(#clip0)"><path d="M14.974 2.678c.165.037.326.087.484.148.445.17 1.124.516 1.828 1.203.874.853 1.585 2.026 2.112 3.484.726 2.007 1.094 4.526 1.094 7.486 0 6.259-1.598 9.304-2.939 10.756-.544.59-1.148 1.034-1.794 1.319-.242.11-.495.192-.755.246-5.907-.083-10.948-4.239-12.082-9.96-1.133-5.722 1.95-11.444 7.391-13.717a12.54 12.54 0 014.66-.965h.001zm.2-2.652C6.796.026 0 6.731 0 15 0 23.265 6.795 29.97 15.175 29.97c0 0 8.003-.504 8.003-14.973C23.178.688 15.174.027 15.174.027z" fill="#FF4561"></path><path d="M15.027 2.678c5.901.097 10.928 4.257 12.054 9.974 1.125 5.717-1.959 11.432-7.394 13.702-1.486.62-3.08.949-4.692.967a3.614 3.614 0 01-.754-.246c-.646-.285-1.25-.729-1.794-1.319-.813-.88-1.471-2.067-1.956-3.524-.652-1.963-.983-4.397-.983-7.233 0-2.806.331-5.218.985-7.172.486-1.455 1.148-2.645 1.967-3.536.551-.601 1.164-1.057 1.82-1.356.239-.111.489-.198.746-.258zM14.826.026S6.822.69 6.822 15c0 14.468 8.003 14.972 8.003 14.972C23.206 29.97 30 23.266 30 14.998 30 6.732 23.205.027 14.825.027z" fill="#00BFF3"></path><path d="M20.82 25.813a12.559 12.559 0 01-5.814 1.508h-.012a12.557 12.557 0 01-5.814-1.507c2.18 3.646 5.145 4.104 5.589 4.151.077.003.154.004.23.005.078 0 .155 0 .232-.005.444-.047 3.408-.505 5.589-4.152zM14.974 2.678l.027.006.027-.006a12.54 12.54 0 015.73 1.472C18.562.56 15.615.08 15.22.031A29.86 29.86 0 0015 .026c-.073-.001-.147 0-.22.004-.396.05-3.343.53-5.536 4.12a12.54 12.54 0 015.73-1.473z" fill="#2B3A44"></path></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h30v30H0z"></path></clipPath></defs></svg></a></li>
-            <!--<li><a href="#">Product Collections</a></li>
-            <li><a href="#">Products</a></li>-->
-            <li style="padding-top:7px;padding-bottom:7px">
+            <li>
+                <svg width="87" height="26" viewBox="0 0 87 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="vogue"><path d="M80.484 18.012c-.431-3.31-1.22-4.94-3.567-5.244h-1.67v11.226h2.815c3.259-.205 7.091-2.712 7.857-8.023v8.286H69.173v-.274h2.485V2.035h-1.767v17.117c-.133 1.82-.89 2.89-1.672 3.877a5.158 5.158 0 01-2.832 1.648c-3.51.782-7.49.042-9.26-2.58-.463-.829-.748-1.278-.79-4.07V2.057h-2.073v-.263h7.76v.261h-2.1v19.008c-.054 1.002.646 2.265 2.438 3.296 1.002.44 2.622.331 3.594.151.74-.09 1.204-.303 1.842-.614 1.274-.625 2.868-3.026 2.835-4.703V2.056h-2.668v-.262h18.003v7.49c-.207-.916-.36-2.342-1.137-3.745-1.317-2.566-2.95-3.566-5.829-3.484H75.25v10.452h1.685c2.399-.227 3.168-1.497 3.55-4.53l-.001 10.035z" fill="#fff" stroke="#fff" stroke-width=".25" stroke-linecap="square"></path><path d="M54.802 15.248H53.46v8.86c-.535-.93-1.154-1.448-2.503-1.058-1.9.907-4.18 1.842-5.461 1.811-1.374.036-2.756-.45-4.019-1.064-4.468-3.01-6.097-8.625-4.945-14.05.838-3.454 3.31-7.299 6.947-8.457 3.638-1.327 6.096 2.487 8.57-.199v8.362c-.83-3.018-2.216-6.92-5.632-8.083-2.076-.448-3.931.486-4.806 2.073-1.866 4.105-1.983 14.83.348 19.265.295.671 1.578 1.967 3.54 1.873 1.962-.094 4.382-1.327 4.382-3.104v-6.231h-1.346v-.267h6.271l-.005.269zm-24.04 8.092c-1.945 1.328-4.339 2.025-6.857 1.466-3.146-.662-6.015-3.622-7.06-6.62-1.374-4.43-.852-9.988 2.194-13.49 2.393-2.379 5.304-3.894 8.744-3.15 3.116.677 6.369 3.859 7.213 6.931 1.764 5.353.348 11.411-4.235 14.863zm-1.59-20.532c-1.063-1.155-3.326-1.542-5.116-.846-3.214 1.674-3.454 5.983-3.737 9.58-.203 2.455-.271 8.848 2.357 12.158 1.071 1.066 3.158 1.231 4.495.834 3.982-1.47 4.14-5.992 4.42-9.733v-.08c.214-4.163-.24-9.266-2.418-11.913z" fill="#fff" stroke="#fff" stroke-width=".25" stroke-linecap="square"></path><path d="M20.315 2.051c-.06.018-1.94 0-2.194 0a17666.58 17666.58 0 01-7.082 22.37 93.945 93.945 0 01-1.38-3.536L2.634 2.053H1v-.259h7.206v.26H6.487l6.004 16.23.105.312 5.291-16.548h-2.395v-.254h4.82l.003.257z" fill="#fff" stroke="#fff" stroke-width=".25" stroke-linecap="square"></path></svg>
+                <svg style="margin-left:10px" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="chevron-down"><path clip-rule="evenodd" d="M8.707 10.707a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 8.586l3.293-3.293a1 1 0 111.414 1.414l-4 4z" fill="#fff"></path></svg>
+            </li>
+            <li><a href="#" class="white trigger" data-toggle="#collection-list" data-switch=".container">Product Collections</a></li>
+            <li><a href="#" class="white" onclick="alert('Product Management UI')">Products</a></li>
+            <li>
                 <div class="nav-search" style="position:relative">
                     <svg style="position:absolute;left:5px;top:50%;margin-top:-8px" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="search"><g fill-rule="nonzero"><path d="M10 6.5a3.5 3.5 0 10-7 0 3.5 3.5 0 007 0zm2 0a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z"></path><path d="M14.707 13.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 011.414-1.414l4 4z"></path></g></svg>
                     <form id="search">
@@ -267,214 +269,101 @@
             <div style="margin-left:15px;border-radius:50%;height:30px;width:30px;background:#fff;color:#121212;font-weight:700;text-align:center;line-height:30px">AD</div>
         </div>
     </nav>
-    <section class="container active">
+    <section class="container active" id="collection-list">
         <div class="wrapper">
             <h2 class="paragraph-md">Product Collections</h2>
-            <div class="containers">
-                <div class="collection-list">
-                    <a href="#" id="first-collection-list-item" class="trigger" data-target="#collection-edit">High Waist Jeans Guide</a>
-                </div>
-                <div class="collection-list">
-                    <a href="#" class="trigger" data-target="#collection-edit">Gucci New Arrivals</a>
-                </div>
-                <div class="collection-list">
-                    <a href="#" class="trigger" data-target="#collection-edit">Vogue World: Retro Edit</a>
-                </div>
-            </div>
+            <ol>
+                <li>Collection</li>
+                <li>Authors</li>
+                <li class="right">Updated</li>
+            </ol>
+            <ol>
+                <li><a href="#" class="trigger highlight" data-toggle="#collection-edit" data-switch=".container">High Waist Jeans Guide</a></li>
+                <li>Hera, Zeus</li>
+                <li class="right">2023-05-13 10:00 am</li>
+            </ol>
+            <ol>
+                <li><a href="#" class="trigger highlight" data-toggle="#collection-edit" data-switch=".container">Gucci New Arrivals</a></li>
+                <li>Julius, Cleopatra</li>
+                <li class="right">2023-05-13 10:00 am</li>
+            </ol>
+            <ol>
+                <li><a href="#" class="trigger highlight" data-toggle="#collection-edit" data-switch=".container">Vogue World: Retro Edit</a></li>
+                <li>Karenina, Vronsky</li>
+                <li class="right">2023-05-13 10:00 am</li>
+            </ol>
         </div>
     </section>
     <section class="container toggle" id="collection-edit">
         <div class="wrapper">
             <h2 class="paragraph-md">Vogue World: Retro Edit</h2>
-            <!--<nav class="paragraph-md">
-                <ul>
-                    <li class="active"><a href="#" class="trigger" data-target="#general">General</a></li>
-                    <li><a href="#" class="trigger" data-target="#products">Products</a></li>
-                    <li><a href="#" class="trigger" data-target="#taxonomy">Taxonomy</a></li>
-                </ul>
-            </nav>-->
-            <div class="containers">
-                <div class="sub-container toggle active" id="general">
-                    <div class="container-wrapper">
-                        <h3>Properties</h3>
-                        <div class="form-row">
-                            <label>
-                                <div class="label">Name of Product Collection</div>
-                                <input type="text" value="Vogue World: Retro Edit">
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label>
-                                <div class="label">Tags</div>
-                                <select class="ctags" style="width:100%" multiple="multiple">
-                                    <option selected>Marc's Edit</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="form-row">
-                            <label>
-                                <input type="checkbox" value="1" checked> Hide out-of-stock products
-                            </label>
-                        </div>
-                        <div class="form-row paragraph-lg">
-                            <label>
-                                <input class="manual-toggle" type="checkbox" value="1"> Query Products?
-                            </label>
-                        </div>
-                        <div class="toggle" id="condition-container" style="font-size:.8rem">
-                            <h4>Conditions</h4>
-                            <div id="conditions"></div>
-                            <button style="margin-top:20px" class="paragraph-md secondary" id="more" class="small">Add more</button>
-                            <div class="form-row paragraph-md">
-                                <label>
-                                    <div class="label">Sorting by</div>
-                                    <select style="width:auto">
-                                        <option selected>Default</option>
-                                        <option>Price</option>
-                                        <option>Arrival</option>
-                                    </select>
-                                    <select style="width:auto">
-                                        <option>Ascending</option>
-                                        <option>Descending</option>
-                                    </select>
-                                    and 
-                                    <select style="width:auto">
-                                        <option selected></option>
-                                        <option>Price</option>
-                                        <option>Arrival</option>
-                                    </select>
-                                    <select style="width:auto">
-                                        <option></option>
-                                        <option>Ascending</option>
-                                        <option>Descending</option>
-                                    </select>
-                                    and 
-                                    <select style="width:auto">
-                                        <option selected></option>
-                                        <option>Price</option>
-                                        <option>Arrival</option>
-                                    </select>
-                                    <select style="width:auto">
-                                        <option></option>
-                                        <option>Ascending</option>
-                                        <option>Descending</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <div class="paragraph-md"><button id="foo">Update Product List</button></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="sub-container" id="products">
-                    <div class="container-wrapper">
-                        <h3>Products</h3>
-                        <div class="paragraph-md">
-                            <button class="trigger-finder secondary">Add product</button>
-                            <button id="add-content" class="secondary">Add Content</button>
-                        </div>
-                        <div class="toggle asset-finder">
-                            <div class="paragraph-md">
-                                <div class="form-row">
-                                    <label>
-                                        <div class="label">Find Product</div>
-                                        <select id="asset-finder-product" style="width:100%"></select>
-                                    </label>
-                                </div>
-                                <!--<button id="add-product" class="small">Add Product</button>-->
-                                <button onclick="alert('Product Creation UI')" class="small secondary">Create Product</button>
-                            </div>
-                        </div>
-                        <div class="products" style="display:flex;flex-flow: row wrap;"></div>
-                    </div>
-                </div>
+            <div class="paragraph">
+                <label>
+                    <div class="label">Name</div>
+                    <input type="text" value="Vogue World: Retro Edit">
+                </label>
             </div>
-            <div class="container toggle" id="taxonomy">
-                <div class="container-wrapper">
-                    <h3>Taxonomy</h3>
-                    <div class="form-row paragraph-md">
-                        <label>
-                            <div class="label">Parent Product Collection</div>
-                            <select class="parent" style="width:100%">
-                                <option selected>&nbsp;</option>
-                                <option>Commerce</option>
-                                <option>Commerce - Fashion</option>
-                            </select>
-                        </label>
-                    </div>
-                </div>
+            <div class="paragraph">
+                <label>
+                    <div class="label">Tags</div>
+                    <select class="ctags" style="width:100%" multiple="multiple">
+                        <option selected>Marc's Edit</option>
+                    </select>
+                </label>
             </div>
-            <div class="button">
-                <button class="large">Save</button>
+            <div class="paragraph">
+                <label>
+                    <div class="label">Products per Page</div>
+                    <input type="text" value="64">
+                </label>
+            </div>
+            <div class="paragraph">
+                <label>
+                    <input type="checkbox" value="1" checked> Hide out-of-stock products
+                </label>
+            </div>
+            <div class="paragraph">
+                <label>
+                    <input class="query-toggle" type="checkbox" value="1" autocomplete="off"> Query Products?
+                </label>
+            </div>
+            <div class="toggle" id="condition-container" style="font-size:.9rem;">
+                <div id="conditions"></div>
+                <button style="margin-top:20px" class="paragraph add-query-group small">Add OR-Condition</button>
+                <div class="paragraph">
+                    <div class="label">Sorting by</div>
+                    <select style="width:auto">
+                        <option selected>Performance</option>
+                        <option>Price</option>
+                        <option>Arrival</option>
+                    </select>
+                    <select style="width:auto">
+                        <option>Ascending</option>
+                        <option>Descending</option>
+                    </select>
+                </div>
+                <div class="paragraph" style="margin-top:45px"><button style="font-size:1.05rem">Refresh Product List</button></div>
+            </div>
+            <div id="products" style="margin-top:45px">
+                <h3>Products</h3>
+                <div class="paragraph">
+                    <button class="trigger" data-cb="assetFinderCB" data-overlay="tmpl-search-product" data-title="Search Product">Add product</button>
+                    <button class="trigger" data-prepend="tmpl-product-content" data-target="#products .products" id="add-content">Add Content</button>
+                </div>
+                <div class="products grid"></div>
+            </div>
+            <div style="margin-top:45px">
+                <button class="primary">Save</button>
             </div>
         </div>
     </section>
 </div>
 
-<div class="toggle group" id="template-condition">
-    <div class="form-row">
-        <label>
-            <div class="label">Category</div>
-            <select class="category" style="width:100%">
-                <option>All</option>
-                <option>Health & Beauty>Personal Care>Cosmetics>Bath & Body>Adult Hygienic Wipes</option>
-                <option>Health & Beauty>Personal Care>Cosmetics>Bath & Body>Bar Soap</option>
-                <option>Health & Beauty>Personal Care>Cosmetics>Bath & Body>Bath Additives</option>
-            </select>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <div class="label">Brand</div>
-            <select class="brand" style="width:100%">
-                <option>All</option>
-                <option>Armani</option>
-                <option>Burberry</option>
-                <option>Gucci</option>
-                <option>MiuMiu</option>
-            </select>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <div class="label">Tags</div>
-            <select class="tags" style="width:100%" multiple="multiple">
-                <option>Marc's Edit</option>
-            </select>
-        </label>
-    </div>
-    <div class="form-row" style="display:flex">
-        <label>
-            <div class="label">Price from</div>
-            <input type="number" style="width:auto" placeholder="Price from">
-        </label>
-        <label style="margin-left:20px">
-            <div class="label">Price to</div>
-            <input type="number" style="width:auto" placeholder="Price to">
-        </label>
-    </div>
-</div>
-
-<div class="toggle product" id="template-product" draggable="true">
-    <div class="image"></div>
-    <div class="brand"></div>
-    <div class="name"></div>
-    <div class="price"></div>
-    <div class="retailer"></div>
-    <div class="cover"></div>
-    <div class="edit" onclick="overlay('Product Edit UI')"></div>
-</div>
-
-<div class="toggle product" style="padding:10px" id="template-content" draggable="true">
-    <h3>Content</h3>
-    <input type="text" placeholder="CID">
-    <div class="edit" onclick="alert('Copilot')"></div>
-</div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blueimp-tmpl@3.20.0/js/tmpl.min.js"></script>
 <script>
-
 let products = [
     {
         image: 'https://assets.vogue.com/photos/633567a612d49c1b07d34c5b/3:4/w_640,c_limit/VICTORIA%20BECKHAM_Embroidered%20striped%20sweater.jpg',
@@ -489,11 +378,7 @@ let products = [
         name: 'XT-wings sneakers',
         price: '$160',
         retailer: 'AT SSENSE'
-    }
-]
-
-
-let poolProducts = [
+    },
     {
         image: 'https://assets.vogue.com/photos/6335686af72b36474fd0c51c/3:4/w_748%2Cc_limit/PUMA%2520X%2520VOGUE_hoodie.jpg',
         brand: 'PUMA X VOGUE',
@@ -509,106 +394,222 @@ let poolProducts = [
         retailer: 'AT MATCHESFASHION'
     }
 ]
+</script>
 
-function template(id, callback) {
-    let el = $(id).clone().attr('id', null).removeClass('toggle')
-    if (callback !== undefined)
-        callback(el)
-    return el
-}
-function appendCriteria() {
-    $('#conditions').append(template('#template-condition', function(el) {
-        el.find('.category').select2()
-        el.find('.brand').select2()
-        el.find('.tags').select2({
-            tags: true
-        })
-    }))
-}
-function appendProduct(product) {
-    $('#products .products').prepend(template('#template-product', function(el) {
-        el.find('.brand').html(product.brand)
-        el.find('.price').html(product.price)
-        el.find('.retailer').html(product.retailer)
-        el.find('.name').html(product.name)
-        el.find('.image').append($('<img/>').attr('src', product.image))
-    }))
-}
-function appendContent() {
-    $('#products .products').prepend(template('#template-content'))
-}
+<script type="text/x-tmpl" id="tmpl-product">
+    <div class="product" draggable="true">
+        <div class="image"><img src="{%=o.image%}" alt="{%=o.name%}"></div>
+        <div class="brand">{%=o.brand%}</div>
+        <div class="name">{%=o.name%}</div>
+        <div class="price">{%=o.price%}</div>
+        <div class="retailer">{%=o.retailer%}</div>
+        <div class="cover"></div>
+        <div class="edit trigger" data-overlay="edit-product" data-title="Edit Product"></div>
+    </div>
+</script>
 
-function overlay(title='', content='') {
-    $('.overlay').remove()
-    let $overlay = $('<div/>').addClass('overlay')
-    $overlay.append(
-        $('<div/>').addClass('overlay-wrapper')
-        .append($('<h3/>').html(title))
-    )
-    $('body').append($overlay)
-}
+<script type="text/x-tmpl" id="tmpl-overlay">
+    <div class="overlay">
+        <div class="overlay-wrapper">
+            <a href="#" class="trigger close" data-close=".overlay">X</a>
+            <h3>{%=o.title%}</h3>
+            <div class="overlay-content">{%=o.content%}</div>
+        </div>
+    </div>
+</script>
 
+<script type="text/x-tmpl" id="tmpl-product-content">
+    <div class="product" style="padding:10px" draggable="true">
+        <h3>Content</h3>
+        <input type="text" placeholder="CID">
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-search-product">
+    <div class="paragraph">
+        <select id="asset-finder-search">
+            <option value="">Search product...</option>
+            {% for (var i=0; i<products.length; i++) { %}
+                <option value="{%=i%}">{%=products[i].brand%}</option>
+            {% } %}        
+        </select>
+    </div>
+    <button class="add-product">Add Product</button>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-query-group">
+    <div class="query-group">
+        <div class="paragraph rows"></div>
+        <button class="add-query-row small">Add AND-Condition</button>
+        <button class="remove-query-group" style="font-size:.65rem;background:none;font-weight:300">Remove Condition</button>
+        <div class="or">OR</div>
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-query-row">
+    <div class="query-row grid">
+        <div class="select">
+            <select class="query" style="width:auto;height:49px">
+                <option></option>
+                <option value="brand">Brand</option>
+                <option value="category">Category</option>
+                <option value="tags">Tags</option>
+                <option value="price">Price</option>
+            </select>        
+        </div>
+        <div class="value"></div>
+        <div class="remove"><button class="remove-query-row">X</button></div>
+        <div class="and">AND</div>
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="query-category">
+    <label>
+        <select class="category" style="width:100%">
+            <option>All</option>
+            <option>Beauty > Lipsticks</option>
+            <option>Fashion > Dresses</option>
+            <option>Fashion > Shoes</option>
+        </select>
+    </label>
+</script>
+
+<script type="text/x-tmpl" id="query-brand">
+    <label>
+        <select class="brand" style="width:100%">
+            <option>All</option>
+            <option>Armani</option>
+            <option>Burberry</option>
+            <option>Gucci</option>
+            <option>MiuMiu</option>
+        </select>
+    </label>
+</script>
+
+<script type="text/x-tmpl" id="query-tags">
+    <label>
+        <select class="tags" style="width:100%" multiple="multiple">
+            <option>Marc's Edit</option>
+        </select>
+    </label>
+</script>
+
+<script type="text/x-tmpl" id="query-price">
+    <label>
+        <input type="number" style="width:45%;height:49px" placeholder="Price from">
+        <input type="number" style="width:45%;height:49px" placeholder="Price to">
+    </label>
+</script>
+
+<script>
+let $assetFinderProductSelect = null
+function assetFinderCB() {
+    $assetFinderProductSelect = $('#asset-finder-search').select2()
+}
 $(function() {
     $('body').on('click', '.trigger', function(e) {
         e.preventDefault()
-        $('.container').removeClass('active')
-        $('nav li').removeClass('active')
-        $($(this).data('target')).addClass('active')
-        $(this).closest('li').addClass('active')
+        Object.entries($(this).data()).forEach(([trigger, value]) => {
+            let el = $(this)
+            switch(trigger) {
+                case 'toggle':
+                   if (el[0].hasAttribute('data-switch'))
+                        $(el.attr('data-switch')).removeClass('active')
+                    $(value).addClass('active')
+                break;
+                case 'prepend':
+                    $(el.attr('data-target')).prepend(tmpl(value))
+                break;
+                case 'append':
+                    $(el.attr('data-target')).append(tmpl(value))
+                break;
+                case 'close':
+                    $(value).remove()
+                    $('.backdrop').remove()
+                break;
+                case 'overlay':
+                    $('body').append($('<div/>').addClass('backdrop'))
+                    let overlay = tmpl('tmpl-overlay', {
+                        title: el.attr('data-title'),
+                        content: el.attr('data-content')
+                    })
+                    $('body').append(overlay).ready(function() {
+                        if ($('#'+value).length>0)
+                            $(this).find('.overlay-content').append(tmpl(value))
+                        if (el[0].hasAttribute('data-cb')) 
+                            window[el.attr('data-cb')]()
+                    })
+                break;
+            }
+        })
     })
-    appendCriteria()
-    $('#more').click(function(e) {
-        e.preventDefault()
-        $('#conditions').append($('<div/>').addClass('sepa').html('+'))
-        appendCriteria()
+    $('.ctags').select2({
+        tags: true
     })
-    products.forEach(function(product) {
-        appendProduct(product)
-    })
+    let $productList = $('#products .products')
+    $productList.append(tmpl('tmpl-product', products[0]))
+    $productList.append(tmpl('tmpl-product', products[1]))
+
     new Sortable($('#products .products')[0], {
         onUpdate: function(e) {
             $(e.item).find('.cover').addClass('pin')
         }
     })
 
-    $('.trigger-finder').click(function(e) {
-        e.preventDefault()
-        $('.asset-finder').toggleClass('toggle')
-    })
-    poolProducts.forEach(function(product, index) {
-        $('#asset-finder-product').append($('<option>', {
-            text: product.brand + ' - ' + product.name,
-            value: index
-        }))
-    })
-    $('#asset-finder-product').select2()
-    $('#asset-finder-product').on('select2:select', function (e) {
-        appendProduct(poolProducts[$('#asset-finder-product option:selected').val()])
-        $('.product').first().find('.cover').addClass('pin')
-    })
-    $('#add-product').click(function(e) {
-        e.preventDefault()
-        appendProduct(poolProducts[$('#asset-finder-product option:selected').val()])
-        $('.product').first().find('.cover').addClass('pin')
-    })
-    $('#add-content').click(function(e) {
-        e.preventDefault()
-        appendContent()
-        $('.product').first().addClass('pin')
-    })
-    $('.parent').select2()
-    $('.manual-toggle').change(function() {
+    $('.query-toggle').change(function() {
         $('#condition-container').toggleClass('toggle')
     })
-    $('#search').submit(function(e) {
-        e.preventDefault()
-        $('#first-collection-list-item').trigger('click')
+
+    $('#conditions').append(tmpl('tmpl-query-group'))
+    $('#conditions .query-group:last-child').find('.rows').append(tmpl('tmpl-query-row'))
+
+    $(document).on('click', 'button', function(e) {
+        let el = $(this)
+        if (el.hasClass('add-product')) {
+            e.preventDefault()
+            let value = el.closest('.content-overlay').find('select')
+            let productId = $assetFinderProductSelect.select2('data')[0].id
+            if (productId == '')
+                return false
+            $productList.prepend(tmpl('tmpl-product', products[productId]))
+            el.closest('.overlay').find('.close').trigger('click')
+            $('.product').first().find('.cover').addClass('pin')
+        }
+        else if (el.hasClass('add-query-group')) {
+            e.preventDefault()
+            $('#conditions').append(tmpl('tmpl-query-group'))
+            $('#conditions .query-group:last-child').find('.rows').append(tmpl('tmpl-query-row'))
+        }
+        else if (el.hasClass('add-query-row')) {
+            e.preventDefault()
+            el.closest('.query-group').find('.rows').append(tmpl('tmpl-query-row'))
+        }
+        else if (el.hasClass('remove-query-row')) {
+            e.preventDefault()
+            el.closest('.query-row').remove()
+        }
+        else if (el.hasClass('remove-query-group')) {
+            e.preventDefault()
+            el.closest('.query-group').remove()
+        }
     })
-    $('.ctags').select2({
-        tags: true
+
+    $('body').on('change', '.query-group .query', function(e) {
+        let $queryRow = $(this).closest('.query-row')
+        $queryRow.find('.value').html('')
+        if ($(this).val() == '')
+            return
+        $queryRow.find('.value').append(
+            tmpl('query-' + $(this).val())
+        ).ready(function() {
+            $queryRow.find('.category').select2()
+            $queryRow.find('.brand').select2()
+            $queryRow.find('.tags').select2({
+                tags: true
+            })
+        })
     })
 })
 </script>
-
 </body>
 </html>
