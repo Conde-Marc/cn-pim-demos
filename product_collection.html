@@ -329,7 +329,7 @@
             </div>
             <div class="toggle" id="condition-container" style="font-size:.9rem;">
                 <div id="conditions"></div>
-                <button style="margin-top:20px" class="paragraph add-query-group small">Add OR-Condition</button>
+                <button style="margin-top:20px" class="paragraph add-query-group small">Add AND-Condition</button>
                 <div class="paragraph">
                     <div class="label">Sorting by</div>
                     <select style="width:auto">
@@ -440,9 +440,9 @@ let products = [
 <script type="text/x-tmpl" id="tmpl-query-group">
     <div class="query-group">
         <div class="paragraph rows"></div>
-        <button class="add-query-row small">Add AND-Condition</button>
-        <button class="remove-query-group" style="font-size:.65rem;background:none;font-weight:300">Remove Condition</button>
-        <div class="or">OR</div>
+        <!--<button class="add-query-row small">Add AND-Condition</button>
+        <button class="remove-query-group" style="font-size:.65rem;background:none;font-weight:300">Remove Condition</button>-->
+        <div class="or">AND</div>
     </div>
 </script>
 
@@ -465,7 +465,7 @@ let products = [
 
 <script type="text/x-tmpl" id="query-category">
     <label>
-        <select class="category" style="width:100%">
+        <select class="category" style="width:100%" multiple="multiple">
             <option>All</option>
             <option>Beauty > Lipsticks</option>
             <option>Fashion > Dresses</option>
@@ -476,7 +476,7 @@ let products = [
 
 <script type="text/x-tmpl" id="query-brand">
     <label>
-        <select class="brand" style="width:100%">
+        <select class="brand" style="width:100%" multiple="multiple">
             <option>All</option>
             <option>Armani</option>
             <option>Burberry</option>
@@ -586,11 +586,11 @@ $(function() {
         }
         else if (el.hasClass('remove-query-row')) {
             e.preventDefault()
-            el.closest('.query-row').remove()
+            el.closest('.query-group').remove()
         }
         else if (el.hasClass('remove-query-group')) {
             e.preventDefault()
-            el.closest('.query-group').remove()
+            el.closest('.query-row').remove()
         }
     })
 
