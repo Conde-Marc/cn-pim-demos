@@ -148,6 +148,12 @@
         background-repeat: no-repeat;
         background-position:top right;
     }
+    .product.double {
+        width:50%;
+    }
+    .product.full {
+        width:100%;
+    }
     .edit {
         width:24px;
         height:24px;
@@ -424,10 +430,10 @@ let products = [
         <div style="font-size:11px;margin-bottom:5px">External Link CID</div>
         <input type="text" placeholder="CID">
         <div style="margin:15px 0">
-            <select>
-                <option>Single Column</option>
-                <option>Double Column</option>
-                <option>Full</option>
+            <select onchange="updateProductColumn(this)">
+                <option value="single">Single Column</option>
+                <option value="double">Double Column</option>
+                <option value="full">Full</option>
             </select>
         </div>
     </div>
@@ -513,6 +519,11 @@ let products = [
 let $assetFinderProductSelect = null
 function assetFinderCB() {
     $assetFinderProductSelect = $('#asset-finder-search').select2()
+}
+function updateProductColumn(content) {
+    let contentContainer = $(content).closest('.product')
+    contentContainer.removeClass('single double full')
+    contentContainer.addClass($(content).val())
 }
 $(function() {
     $('body').on('click', '.trigger', function(e) {
